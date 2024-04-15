@@ -22,6 +22,7 @@ export default function Home() {
 
   const [editableTranscript, setEditableTranscript] = useState('')
   const [answer, setAnswer] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser does not support speech recognition.</span>
@@ -48,11 +49,15 @@ export default function Home() {
   const sendQuery = () => {
     const formData = new FormData()
     formData.append("question", editableTranscript)
+    setIsLoading(true)
     fetch("api/", {
       method: "POST",
       body: formData,
     })
-        .then(async response => setAnswer(await response.json()))
+        .then(async response => {
+          setAnswer(await response.json())
+          setIsLoading(false)
+        })
         .catch(error => console.log(error));
   }
 
@@ -77,7 +82,15 @@ export default function Home() {
       </div>
       <div className="buttons">
         <button className="button" onClick={reset}>Resetuj</button>
-        <button className="button" onClick={sendQuery}>Wyślij</button>
+        <button className="button" onClick={sendQuery}>
+          Wyślij&nbsp;
+          <Image
+              className={isLoading ? 'rotate' : 'hidden'}
+              src={`/images/spinner.svg`}
+              alt='loading'
+              height={24}
+              width={24}/>
+        </button>
         <button 
         className={`dictaphone ${listening ? 'dictaphoneActive' : ''}`}
         onMouseDown={handleHold}

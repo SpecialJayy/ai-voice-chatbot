@@ -137,3 +137,18 @@ textarea:focus, input:focus{
 .GPT {
   color: #5519bc;
 }
+
+.rotate {
+  animation: rotation 0.75s infinite linear;
+  filter: invert();
+  display: inline-flex;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
