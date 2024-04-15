@@ -20,11 +20,12 @@ export default function Home() {
   // const startListening = () => {SpeechRecognition.startListening({ continuous: true });}
   // const stopListening = () => SpeechRecognition.stopListening
 
+  const [editableTranscript, setEditableTranscript] = useState('')
+  const [answer, setAnswer] = useState('')
+
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser does not support speech recognition.</span>
   }
-
-  const [editableTranscript, setEditableTranscript] = useState('')
 
   const reset = () => {
     console.log("reset")
@@ -45,12 +46,18 @@ export default function Home() {
   }
 
   const sendQuery = () => {
-
+    const formData = new FormData()
+    formData.append("question", editableTranscript)
+    fetch("api/", {
+      method: "POST",
+      body: formData,
+    })
+        .then(async response => setAnswer(await response.json()))
+        .catch(error => console.log(error));
   }
 
   const listen = () => {
-    const tekscior = "odpowiedź"
-    let utterance = new SpeechSynthesisUtterance(tekscior);  
+    let utterance = new SpeechSynthesisUtterance(answer);
     speechSynthesis.speak(utterance);
   }
 
@@ -60,6 +67,7 @@ export default function Home() {
       <div className="chat">
         <textarea className="zapytanie"  value={listening ? transcript : editableTranscript } onChange={(e) => setEditableTranscript(e.target.value)}></textarea>
         <div className="odpytanie">
+          {answer}
           <button className="speaker"
           onClick={listen}
           >
