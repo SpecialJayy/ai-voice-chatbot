@@ -63,8 +63,8 @@ export default function Home() {
 
   return (
     <div className="main">
-      <p className="header">Wygenerowany tekst:</p>
       <div className="chat">
+        <p className="header">Niewiemjak<span className="GPT">GPT</span></p>
         <textarea className="zapytanie"  value={listening ? transcript : editableTranscript } onChange={(e) => setEditableTranscript(e.target.value)}></textarea>
         <div className="odpytanie">
           {answer}
@@ -85,8 +85,9 @@ export default function Home() {
         >
           <Image src="/./images/microphone.png" width={50} height={50} alt="mikrofon" />
         </button>
+         <p className="">Mikrofon: {listening ? 'Mów teraz' : 'wyłączony'}</p>
       </div>
-        <p className="">Mikrofon: {listening ? 'Mów teraz' : 'wyłączony'}</p>
+
       <div className="">
         {/* <button className="btn btn-primary btn-sm" onClick={SpeechRecognition.startListening}>Start</button>
         <button className="btn btn-secondary btn-sm" onClick={SpeechRecognition.stopListening}>Stop</button>

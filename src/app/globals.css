@@ -34,7 +34,7 @@ body {
 
 .main{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .zapytanie{
@@ -73,10 +73,13 @@ textarea:focus, input:focus{
 
 .buttons{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2vw;
   margin-top: 1vw;
   margin-bottom: 1vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .button{
@@ -106,7 +109,9 @@ textarea:focus, input:focus{
   border:#f4edff solid 0.3vw;
   border-radius: 2vw;
   width: 80vw;
-  height: 15vw;
+  height: fit-content;
+  overflow-y: scroll;
+  max-height: 35vw;
 }
 
 .chat{
@@ -117,8 +122,18 @@ textarea:focus, input:focus{
 }
 
 .speaker {
-  position: absolute;
-  bottom: 0;
+  position:absolute;
+  top: 0;
   right: 0;
   margin: 0 2vw 2vw 0;
+  filter: invert(28%) sepia(95%) saturate(7402%) hue-rotate(263deg) brightness(73%) contrast(103%);
+}
+
+.header {
+  font-size: 2vw;
+  margin:0 auto 0 auto;
+}
+
+.GPT {
+  color: #5519bc;
 }
