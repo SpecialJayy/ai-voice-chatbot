@@ -45,19 +45,27 @@ export default function Home() {
   }
 
   const sendQuery = () => {
-    console.log()
+
   }
 
-  // let message= "Hello World";
-  // let utterance = new SpeechSynthesisUtterance(message);  
-  // speechSynthesis.speak(utterance);
+  const listen = () => {
+    const tekscior = "odpowiedź"
+    let utterance = new SpeechSynthesisUtterance(tekscior);  
+    speechSynthesis.speak(utterance);
+  }
 
   return (
     <div className="main">
       <p className="header">Wygenerowany tekst:</p>
       <div className="chat">
         <textarea className="zapytanie"  value={listening ? transcript : editableTranscript } onChange={(e) => setEditableTranscript(e.target.value)}></textarea>
-        <div className="odpytanie"></div>
+        <div className="odpytanie">
+          <button className="speaker"
+          onClick={listen}
+          >
+          <Image src="/./images/speaker.png" width={25} height={25} alt="głośnik" />
+          </button>
+        </div>
       </div>
       <div className="buttons">
         <button className="button" onClick={reset}>Resetuj</button>
@@ -67,7 +75,7 @@ export default function Home() {
         onMouseDown={handleHold}
         onMouseUp={handleRelease}
         >
-          <Image src="/./images/microphone.png" width={25} height={25} alt="mikrofon" />
+          <Image src="/./images/microphone.png" width={50} height={50} alt="mikrofon" />
         </button>
       </div>
         <p className="">Mikrofon: {listening ? 'Mów teraz' : 'wyłączony'}</p>

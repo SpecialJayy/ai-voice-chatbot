@@ -99,6 +99,7 @@ textarea:focus, input:focus{
 } 
 
 .odpytanie{
+  position: relative;
   background-color: #00000000;
   color: white;
   padding: 2vw;
@@ -113,4 +114,11 @@ textarea:focus, input:focus{
   flex-direction: column;
   gap: 2vw;
   margin: 2vw 0 2vw 0;
+}
+
+.speaker {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 2vw 2vw 0;
 }
