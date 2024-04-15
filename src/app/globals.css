@@ -31,3 +31,86 @@ body {
     text-wrap: balance;
   }
 }
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.zapytanie{
+  background-color: #00000000;
+  color: white;
+  padding: 2vw;
+  border:#5519bc solid 0.3vw;
+  border-radius: 2vw;
+  width: 80vw;
+  height: 15vw;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+  border:#a06aff solid 0.3vw;
+}
+
+.dictaphone{
+  /* transition: border 0.3s; */
+  /* border:#5519bc solid 1vw;
+  border-radius: 50%;
+  height: 7vw;
+  width: 7vw;
+  padding: 3vw; */
+  padding: 1vw 2vw 1vw 2vw;
+  background-color: rgba(255, 255, 255, 0);
+  border:#5519bc solid 0.3vw;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.dictaphone > Image{
+  height: 4vw;
+  width: 4vw;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+.button{
+  transition: border 0.3s;
+  padding: 1vw 2vw 1vw 2vw;
+  background-color: rgba(255, 255, 255, 0);
+  border:#5519bc solid 0.3vw;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.button:hover{
+  transition: border 0.3s;
+  border-color: #a06aff;
+}
+
+.dictaphoneActive {
+  transition: border 0.3s;
+  border-color: #a06aff;
+} 
+
+.odpytanie{
+  background-color: #00000000;
+  color: white;
+  padding: 2vw;
+  border:#f4edff solid 0.3vw;
+  border-radius: 2vw;
+  width: 80vw;
+  height: 15vw;
+}
+
+.chat{
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  margin: 2vw 0 2vw 0;
+}
