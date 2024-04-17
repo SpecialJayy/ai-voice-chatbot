@@ -31,3 +31,129 @@ body {
     text-wrap: balance;
   }
 }
+
+.main{
+  display: flex;
+  flex-direction: row;
+}
+
+.zapytanie{
+  background-color: #00000000;
+  color: white;
+  padding: 2vw;
+  border:#5519bc solid 0.3vw;
+  border-radius: 2vw;
+  width: 80vw;
+  height: 15vw;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+  border:#a06aff solid 0.3vw;
+}
+
+.dictaphone{
+  /* transition: border 0.3s; */
+  /* border:#5519bc solid 1vw;
+  border-radius: 50%;
+  height: 7vw;
+  width: 7vw;
+  padding: 3vw; */
+  padding: 1vw 2vw 1vw 2vw;
+  background-color: rgba(255, 255, 255, 0);
+  border:#5519bc solid 0.3vw;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.dictaphone > Image{
+  height: 4vw;
+  width: 4vw;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.button{
+  transition: border 0.3s;
+  padding: 1vw 2vw 1vw 2vw;
+  background-color: rgba(255, 255, 255, 0);
+  border:#5519bc solid 0.3vw;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.button:hover{
+  transition: border 0.3s;
+  border-color: #a06aff;
+}
+
+.dictaphoneActive {
+  transition: border 0.3s;
+  border-color: #a06aff;
+} 
+
+.odpytanie{
+  position: relative;
+  background-color: #00000000;
+  color: white;
+  padding: 2vw;
+  border:#f4edff solid 0.3vw;
+  border-radius: 2vw;
+  width: 80vw;
+  height: fit-content;
+  overflow-y: scroll;
+  max-height: 35vw;
+}
+
+.chat{
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  margin: 2vw 0 2vw 0;
+}
+
+.speaker {
+  position:absolute;
+  top: 0;
+  right: 0;
+  margin: 0 2vw 2vw 0;
+  filter: invert(28%) sepia(95%) saturate(7402%) hue-rotate(263deg) brightness(73%) contrast(103%);
+}
+
+.header {
+  font-size: 2vw;
+  margin:0 auto 0 auto;
+}
+
+.GPT {
+  color: #5519bc;
+}
+
+.rotate {
+  animation: rotation 0.75s infinite linear;
+  filter: invert();
+  display: inline-flex;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #a06aff #ffffff00;
+}
